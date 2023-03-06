@@ -27,11 +27,12 @@ public class Truck extends Transport<DriverC> implements Competing {
 
         @Override
         public String toString() {
-            return "Грузоподъемность " + (lowerBound == null ? " " : " от " + String.valueOf(lowerBound)) +
-                    (upperBound == null ? " " : " до " + String.valueOf(upperBound)) +
-                    '}';
+            return " Грузоподъемность " + (lowerBound == null ? " " : " от " + String.valueOf(lowerBound)) +
+                    (upperBound == null ? " " : " до " + String.valueOf(upperBound));
         }
     }
+
+
 
     public LoadCapacity getLoadCapacity() {
         return loadCapacity;
@@ -71,5 +72,10 @@ public class Truck extends Transport<DriverC> implements Competing {
         } else {
             System.out.println("Данных по транспортному средству недостаточно");
         }
+    }
+
+    @Override
+    public String toString() {
+        return super.toString() + loadCapacity;
     }
 }

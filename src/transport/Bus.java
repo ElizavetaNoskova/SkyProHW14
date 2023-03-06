@@ -11,6 +11,7 @@ public class Bus extends Transport<DriverD> implements Competing {
         this.capacity = capacity;
     }
 
+
     public enum Capacity {
         SO_LITTLE(null, 10),
         LITTLE(10, 25),
@@ -24,13 +25,19 @@ public class Bus extends Transport<DriverD> implements Competing {
             this.lowerBound = lowerBound;
             this.upperBound = upperBound;
         }
-
-
         @Override
         public String toString() {
-            return "Вместимость "+(lowerBound == null ? " " : " от  " + String.valueOf(lowerBound)) +
+            return " Вместимость "+(lowerBound == null ? " " : " от  " + String.valueOf(lowerBound)) +
                     (upperBound == null ? " " : " до  " + String.valueOf(upperBound));
         }
+    }
+
+    public Capacity getCapacity() {
+        return capacity;
+    }
+
+    public void setCapacity(Capacity capacity) {
+        this.capacity = capacity;
     }
 
     @Override
@@ -59,6 +66,11 @@ public class Bus extends Transport<DriverD> implements Competing {
         } else {
             System.out.println("Данных по транспортному средству недостаточно");
         }
+    }
+
+    @Override
+    public String toString() {
+        return super.toString() + capacity;
     }
 }
 

@@ -21,6 +21,10 @@ public class Car extends Transport<DriverB> implements Competing {
         BodyType(String bodyType) {
             this.bodyType = bodyType;
         }
+       @Override
+       public String toString() {
+           return " Тип кузова:" + bodyType + ".";
+       }
     }
 
     BodyType bodyType;
@@ -28,11 +32,6 @@ public class Car extends Transport<DriverB> implements Competing {
     public Car(String brand, String model, double engineCapacity, DriverB driverB, BodyType bodyType) {
         super(brand, model, engineCapacity);
         this.bodyType = bodyType;
-    }
-
-    @Override
-    public String toString() {
-        return "Тип кузова:" + bodyType + " ";
     }
 
     @Override
@@ -52,16 +51,6 @@ public class Car extends Transport<DriverB> implements Competing {
         double maxSpeed = minBound + (maxBound - minBound) * Math.random();
         System.out.println("Максимальная скорость" + maxSpeed);
     }
-
-    /* @Override
-     public void printType() {
-         if (getType() != null) {
-             System.out.println(getType());
-         } else {
-             System.out.println("Данных по транспортному средству недостаточно");
-         }
-     }
- }*/
     public BodyType getBodyType() {
         return bodyType;
     }
@@ -82,6 +71,11 @@ public class Car extends Transport<DriverB> implements Competing {
         } else {
             System.out.println("Данных по транспортному средству недостаточно");
         }
+    }
+
+    @Override
+    public String toString() {
+        return super.toString()+ bodyType;
     }
 }
 

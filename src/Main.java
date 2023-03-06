@@ -38,9 +38,10 @@ public class Main {
         }
         for (Transport<?> transport : transports) {
             System.out.println("Водитель: " + transport.getDriver().getFullName() + ", управляет автомобилем: "
-                    + transport.getBrand() + " " + transport.getModel() +
+                    + transport.getBrand() + " " + transport.getModel() + " вид транспорта: " + transport.getType() +
                     " и будет участвовать в заезде");
         }
+        transports[1].printType();
     }
 }
 
