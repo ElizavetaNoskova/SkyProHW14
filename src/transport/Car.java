@@ -5,7 +5,7 @@ import driver.DriverB;
 
 
 public class Car extends Transport<DriverB> implements Competing {
-    enum BodyType {
+   public enum BodyType {
         SEDAN("Cедан"),
         HATCHCACK("Хэтчбэк"),
         COUPE("Купе"),

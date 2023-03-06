@@ -18,18 +18,20 @@ public class Main {
         DriverD driverD3 = new DriverD("Крюков Иван Иванович", true, 24);
         DriverD driverD4 = new DriverD("Сидоров Иван Иванович", true, 14);
         Transport<?>[] transports = {
-                new Car("Audi", "A8 50 L TDI quattro", 3.2, driverB1),
-                new Car("Kia", "Sportage 4-го поколения", 2.4, driverB2),
-                new Car("Kia", "Sportage 4-го поколения", 2.4, driverB3),
-                new Car("Hyundai", "Avante", 1.6, driverB4),
-                new Bus("Волжанин", "городской", 3.0, driverD1),
-                new Bus("BMW", "120", 4.2, driverD2),
-                new Bus("Mercedes", "s12", 5.0, driverD3),
-                new Bus("Mercedes", "s25", 5.5, driverD4),
-                new Truck("Volvo", "North", 12.8, driverC1),
-                new Truck("Mercedes", "Europe", 14.2, driverC2),
-                new Truck("Mercedes", "S12", 15.6, driverC3),
-                new Truck("Volvo", "Europe North", 16.1, driverC4)};
+                new Car("Audi", "A8 50 L TDI quattro", 3.2, driverB1, Car.BodyType.CROSSOVER),
+                new Car("Kia", "Sportage 4-го поколения", 2.4, driverB2, Car.BodyType.HATCHCACK),
+                new Car("Kia", "Sportage 4-го поколения", 2.4, driverB3, Car.BodyType.MINIVAN),
+                new Car("Hyundai", "Avante", 1.6, driverB4, Car.BodyType.PICKUP),
+
+                new Bus("Волжанин", "городской", 3.0, driverD1, Bus.Capacity.SO_LITTLE ),
+                new Bus("BMW", "120", 4.2, driverD2, Bus.Capacity.AVERAGE),
+                new Bus("Mercedes", "s12", 5.0, driverD3, Bus.Capacity.LARGE),
+                new Bus("Mercedes", "s25", 5.5, driverD4, Bus.Capacity.VERY_LARGE),
+
+                new Truck("Volvo", "North", 12.8, driverC1, Truck.LoadCapacity.N3),
+                new Truck("Mercedes", "Europe", 14.2, driverC2, Truck.LoadCapacity.N1),
+                new Truck("Mercedes", "S12", 15.6, driverC3, Truck.LoadCapacity.N2),
+                new Truck("Volvo", "Europe North", 16.1, driverC4, Truck.LoadCapacity.N2)};
 
         for (Transport<?> transport : transports){
             System.out.println(transport);
@@ -40,11 +42,5 @@ public class Main {
                     " и будет участвовать в заезде");
         }
     }
-    /*public static void printMass(Transport<?>[] transports) {
-        for (Transport<?> transport : transports) {
-            System.out.println("Водитель: " + transport.getDriver().getFullName() + ", управляет автомобилем: "
-                    + transport.getBrand() + " " + transport.getModel() +
-                    " и будет участвовать в заезде");
-        }*/
 }
 

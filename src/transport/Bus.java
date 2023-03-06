@@ -11,7 +11,7 @@ public class Bus extends Transport<DriverD> implements Competing {
         this.capacity = capacity;
     }
 
-    enum Capacity {
+    public enum Capacity {
         SO_LITTLE(null, 10),
         LITTLE(10, 25),
         AVERAGE(25, 50),
