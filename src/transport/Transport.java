@@ -7,6 +7,7 @@ public abstract class Transport<D extends Driver> implements Competing{
     private String model;
     private double engineCapacity;
     private D driver;
+    private Type type;
     // private final int yearOfTheCar;
     // private final String countryOfProduction;
     //String bodyColor;
@@ -75,8 +76,8 @@ public abstract class Transport<D extends Driver> implements Competing{
     public void setDriver(D driver) {
         this.driver = driver;
     }
-    /*public Type getType() {
+    public Type getType() {
         return this.type;
     }
-    public abstract void printType();*/
+    public abstract void printType();
 }
