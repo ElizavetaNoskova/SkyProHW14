@@ -3,6 +3,7 @@ package transport;
 import driver.*;
 
 public abstract class Transport<D extends Driver> implements Competing {
+
     private String brand;
     private String model;
     private double engineCapacity;
@@ -23,7 +24,9 @@ public abstract class Transport<D extends Driver> implements Competing {
             model = "default";
         }
         this.model = model;
+
         if (engineCapacity <= 0.0) {
+
             engineCapacity = 1.6;
         }
         this.engineCapacity = engineCapacity;
@@ -63,6 +66,7 @@ public abstract class Transport<D extends Driver> implements Competing {
                 '}';
     }
 
+
     public void startMoving() {
 
     }
@@ -70,6 +74,7 @@ public abstract class Transport<D extends Driver> implements Competing {
     public void endMoving() {
 
     }
+
 
     public D getDriver() {
         return driver;
@@ -79,6 +84,7 @@ public abstract class Transport<D extends Driver> implements Competing {
         this.driver = driver;
     }
 
+
     public Type getType() {
         return this.type;
     }
@@ -86,4 +92,5 @@ public abstract class Transport<D extends Driver> implements Competing {
     public abstract void printType();
 
     public abstract void passDiagnostics() throws TransportTypeException;
+
 }

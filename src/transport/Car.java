@@ -5,7 +5,9 @@ import driver.DriverB;
 
 
 public class Car extends Transport<DriverB> implements Competing {
+
     public enum BodyType {
+
         SEDAN("Cедан"),
         HATCHCACK("Хэтчбэк"),
         COUPE("Купе"),
@@ -22,10 +24,12 @@ public class Car extends Transport<DriverB> implements Competing {
             this.bodyType = bodyType;
         }
 
+
         @Override
         public String toString() {
             return " Тип кузова:" + bodyType + ".";
         }
+
     }
 
     BodyType bodyType;
@@ -77,12 +81,14 @@ public class Car extends Transport<DriverB> implements Competing {
 
     @Override
     public String toString() {
+
         return super.toString() + bodyType;
     }
 
     @Override
     public void passDiagnostics() {
         System.out.println("Автомобиль " + getBrand() + " " + getModel() + " проходит диагностику");
+
     }
 }
 

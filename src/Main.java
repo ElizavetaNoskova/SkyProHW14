@@ -23,7 +23,8 @@ public class Main {
                 new Car("Kia", "Sportage 4-го поколения", 2.4, driverB3, Car.BodyType.MINIVAN),
                 new Car("Hyundai", "Avante", 1.6, driverB4, Car.BodyType.PICKUP),
 
-                new Bus("Волжанин", "городской", 3.0, driverD1, Bus.Capacity.SO_LITTLE),
+
+                new Bus("Волжанин", "городской", 3.0, driverD1, Bus.Capacity.SO_LITTLE ),
                 new Bus("BMW", "120", 4.2, driverD2, Bus.Capacity.AVERAGE),
                 new Bus("Mercedes", "s12", 5.0, driverD3, Bus.Capacity.LARGE),
                 new Bus("Mercedes", "s25", 5.5, driverD4, Bus.Capacity.VERY_LARGE),
@@ -33,7 +34,9 @@ public class Main {
                 new Truck("Mercedes", "S12", 15.6, driverC3, Truck.LoadCapacity.N2),
                 new Truck("Volvo", "Europe North", 16.1, driverC4, Truck.LoadCapacity.N2)};
 
-        for (Transport<?> transport : transports) {
+
+        for (Transport<?> transport : transports){
+
             System.out.println(transport);
         }
         for (Transport<?> transport : transports) {
@@ -42,6 +45,7 @@ public class Main {
                     " и будет участвовать в заезде");
         }
         transports[1].printType();
+
         checkTransportDiagnostic(transports[1]);
         checkTransportDiagnostic(transports[5]);
         checkTransportDiagnostic(transports[8]);
@@ -63,5 +67,3 @@ public class Main {
         }
     }
 }
-
-
