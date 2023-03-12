@@ -3,12 +3,15 @@ package transport;
 import driver.Driver;
 import driver.DriverD;
 
+import java.util.List;
+
 public class Bus extends Transport<DriverD> implements Competing {
     Capacity capacity;
+    List<Mechanic> busMechanicsList;
 
     public Bus(String brand, String model,
-               double engineCapacity, DriverD driverD1, Capacity capacity) {
-        super(brand, model, engineCapacity);
+               double engineCapacity, DriverD driverD1, Capacity capacity, List<Mechanic> mechanicList) {
+        super(brand, model, engineCapacity, mechanicList);
         this.capacity = capacity;
     }
 

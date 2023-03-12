@@ -2,19 +2,22 @@ package transport;
 
 import driver.*;
 
+import java.util.List;
+
 public abstract class Transport<D extends Driver> implements Competing {
-    private String brand;
-    private String model;
-    private double engineCapacity;
+    private final String brand;
+    private final String model;
+    private final double engineCapacity;
     private D driver;
     private Type type;
+    private final List<Mechanic> mechanicList;
     // private final int yearOfTheCar;
     // private final String countryOfProduction;
     //String bodyColor;
     //int maxSpeed;
 
     public Transport(String brand, String model,
-                     double engineCapacity) {
+                     double engineCapacity, List<Mechanic> mechanicList) {
         if (brand.isEmpty() || brand == null) {
             brand = "default";
         }
@@ -28,28 +31,15 @@ public abstract class Transport<D extends Driver> implements Competing {
         }
         this.engineCapacity = engineCapacity;
         setDriver(driver);
+        this.mechanicList = mechanicList;
     }
 
     public String getBrand() {
         return brand;
     }
-
-    public void setBrand(String brand) {
-        this.brand = brand;
-    }
-
     public String getModel() {
         return model;
     }
-
-    public void setModel(String model) {
-        this.model = model;
-    }
-
-    public void setEngineCapacity(double engineCapacity) {
-        this.engineCapacity = engineCapacity;
-    }
-
     public double getEngineCapacity() {
         return engineCapacity;
     }
@@ -86,4 +76,8 @@ public abstract class Transport<D extends Driver> implements Competing {
     public abstract void printType();
 
     public abstract void passDiagnostics() throws TransportTypeException;
+
+    public List<Mechanic> getMechanicList() {
+        return mechanicList;
+    }
 }

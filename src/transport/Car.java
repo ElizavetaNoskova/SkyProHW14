@@ -3,6 +3,8 @@ package transport;
 import driver.Driver;
 import driver.DriverB;
 
+import java.util.List;
+
 
 public class Car extends Transport<DriverB> implements Competing {
     public enum BodyType {
@@ -16,7 +18,7 @@ public class Car extends Transport<DriverB> implements Competing {
         VAN("Фургон"),
         MINIVAN("Минивэн");
 
-        private String bodyType;
+        private final String bodyType;
 
         BodyType(String bodyType) {
             this.bodyType = bodyType;
@@ -30,8 +32,8 @@ public class Car extends Transport<DriverB> implements Competing {
 
     BodyType bodyType;
 
-    public Car(String brand, String model, double engineCapacity, DriverB driverB, BodyType bodyType) {
-        super(brand, model, engineCapacity);
+    public Car(String brand, String model, double engineCapacity, DriverB driverB, BodyType bodyType, List<Mechanic> mechanicList) {
+        super(brand, model, engineCapacity, mechanicList);
         this.bodyType = bodyType;
     }
 
