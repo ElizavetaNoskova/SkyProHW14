@@ -80,8 +80,10 @@ public class Truck extends Transport<DriverC> implements Competing {
     public String toString() {
         return super.toString() + loadCapacity;
     }
+
     @Override
     public void passDiagnostics() {
         System.out.println("Грузовик " + getBrand() + " " + getModel() + " проходит диагностику");
     }
+
 }

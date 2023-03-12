@@ -30,9 +30,11 @@ public class Bus extends Transport<DriverD> implements Competing {
             this.upperBound = upperBound;
         }
 
+
         @Override
         public String toString() {
             return " Вместимость " + (lowerBound == null ? " " : " от  " + String.valueOf(lowerBound)) +
+
                     (upperBound == null ? " " : " до  " + String.valueOf(upperBound));
         }
     }
@@ -79,10 +81,12 @@ public class Bus extends Transport<DriverD> implements Competing {
         return super.toString() + capacity;
     }
 
+
     @Override
     public void passDiagnostics() throws TransportTypeException {
         throw new TransportTypeException();
     }
+
 
 }
 
