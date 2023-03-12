@@ -3,12 +3,14 @@ package transport;
 import driver.Driver;
 import driver.DriverC;
 
+import java.util.List;
+
 public class Truck extends Transport<DriverC> implements Competing {
     LoadCapacity loadCapacity;
 
     public Truck(String brand, String model, double engineCapacity, DriverC driverC,
-                 LoadCapacity loadCapacity) {
-        super(brand, model, engineCapacity);
+                 LoadCapacity loadCapacity, List<Mechanic> mechanicList) {
+        super(brand, model, engineCapacity, mechanicList);
         this.loadCapacity = loadCapacity;
     }
 
@@ -78,4 +80,10 @@ public class Truck extends Transport<DriverC> implements Competing {
     public String toString() {
         return super.toString() + loadCapacity;
     }
+
+    @Override
+    public void passDiagnostics() {
+        System.out.println("Грузовик " + getBrand() + " " + getModel() + " проходит диагностику");
+    }
+
 }

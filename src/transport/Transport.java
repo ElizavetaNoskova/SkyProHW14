@@ -2,19 +2,22 @@ package transport;
 
 import driver.*;
 
-public abstract class Transport<D extends Driver> implements Competing{
-    private String brand;
-    private String model;
-    private double engineCapacity;
+import java.util.List;
+
+public abstract class Transport<D extends Driver> implements Competing {
+    private final String brand;
+    private final String model;
+    private final double engineCapacity;
     private D driver;
     private Type type;
+    private final List<Mechanic> mechanicList;
     // private final int yearOfTheCar;
     // private final String countryOfProduction;
     //String bodyColor;
     //int maxSpeed;
 
     public Transport(String brand, String model,
-                     double engineCapacity) {
+                     double engineCapacity, List<Mechanic> mechanicList) {
         if (brand.isEmpty() || brand == null) {
             brand = "default";
         }
@@ -23,33 +26,20 @@ public abstract class Transport<D extends Driver> implements Competing{
             model = "default";
         }
         this.model = model;
-        if ( engineCapacity <= 0.0) {
+        if (engineCapacity <= 0.0) {
             engineCapacity = 1.6;
         }
         this.engineCapacity = engineCapacity;
         setDriver(driver);
+        this.mechanicList = mechanicList;
     }
 
     public String getBrand() {
         return brand;
     }
-
-    public void setBrand(String brand) {
-        this.brand = brand;
-    }
-
     public String getModel() {
         return model;
     }
-
-    public void setModel(String model) {
-        this.model = model;
-    }
-
-    public void setEngineCapacity(double engineCapacity) {
-        this.engineCapacity = engineCapacity;
-    }
-
     public double getEngineCapacity() {
         return engineCapacity;
     }
@@ -63,12 +53,14 @@ public abstract class Transport<D extends Driver> implements Competing{
                 '}';
     }
 
-    public void startMoving(){
+    public void startMoving() {
 
     }
-    public void endMoving(){
+
+    public void endMoving() {
 
     }
+
     public D getDriver() {
         return driver;
     }
@@ -76,8 +68,16 @@ public abstract class Transport<D extends Driver> implements Competing{
     public void setDriver(D driver) {
         this.driver = driver;
     }
+
     public Type getType() {
         return this.type;
     }
+
     public abstract void printType();
+
+    public abstract void passDiagnostics() throws TransportTypeException;
+
+    public List<Mechanic> getMechanicList() {
+        return mechanicList;
+    }
 }

@@ -3,11 +3,15 @@ package transport;
 import driver.Driver;
 import driver.DriverD;
 
+import java.util.List;
+
 public class Bus extends Transport<DriverD> implements Competing {
     Capacity capacity;
+    List<Mechanic> busMechanicsList;
+
     public Bus(String brand, String model,
-               double engineCapacity, DriverD driverD1, Capacity capacity) {
-        super(brand, model, engineCapacity);
+               double engineCapacity, DriverD driverD1, Capacity capacity, List<Mechanic> mechanicList) {
+        super(brand, model, engineCapacity, mechanicList);
         this.capacity = capacity;
     }
 
@@ -25,9 +29,12 @@ public class Bus extends Transport<DriverD> implements Competing {
             this.lowerBound = lowerBound;
             this.upperBound = upperBound;
         }
+
+
         @Override
         public String toString() {
-            return " Вместимость "+(lowerBound == null ? " " : " от  " + String.valueOf(lowerBound)) +
+            return " Вместимость " + (lowerBound == null ? " " : " от  " + String.valueOf(lowerBound)) +
+
                     (upperBound == null ? " " : " до  " + String.valueOf(upperBound));
         }
     }
@@ -54,6 +61,7 @@ public class Bus extends Transport<DriverD> implements Competing {
     public void maxSpeed() {
         System.out.println("Максимальная скорость");
     }
+
     @Override
     public Type getType() {
         return Type.BUS;
@@ -72,5 +80,13 @@ public class Bus extends Transport<DriverD> implements Competing {
     public String toString() {
         return super.toString() + capacity;
     }
+
+
+    @Override
+    public void passDiagnostics() throws TransportTypeException {
+        throw new TransportTypeException();
+    }
+
+
 }
 

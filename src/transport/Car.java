@@ -3,9 +3,13 @@ package transport;
 import driver.Driver;
 import driver.DriverB;
 
+import java.util.List;
+
 
 public class Car extends Transport<DriverB> implements Competing {
-   public enum BodyType {
+
+    public enum BodyType {
+
         SEDAN("Cедан"),
         HATCHCACK("Хэтчбэк"),
         COUPE("Купе"),
@@ -16,21 +20,24 @@ public class Car extends Transport<DriverB> implements Competing {
         VAN("Фургон"),
         MINIVAN("Минивэн");
 
-        private String bodyType;
+        private final String bodyType;
 
         BodyType(String bodyType) {
             this.bodyType = bodyType;
         }
-       @Override
-       public String toString() {
-           return " Тип кузова:" + bodyType + ".";
-       }
+
+
+        @Override
+        public String toString() {
+            return " Тип кузова:" + bodyType + ".";
+        }
+
     }
 
     BodyType bodyType;
 
-    public Car(String brand, String model, double engineCapacity, DriverB driverB, BodyType bodyType) {
-        super(brand, model, engineCapacity);
+    public Car(String brand, String model, double engineCapacity, DriverB driverB, BodyType bodyType, List<Mechanic> mechanicList) {
+        super(brand, model, engineCapacity, mechanicList);
         this.bodyType = bodyType;
     }
 
@@ -51,6 +58,7 @@ public class Car extends Transport<DriverB> implements Competing {
         double maxSpeed = minBound + (maxBound - minBound) * Math.random();
         System.out.println("Максимальная скорость" + maxSpeed);
     }
+
     public BodyType getBodyType() {
         return bodyType;
     }
@@ -75,7 +83,14 @@ public class Car extends Transport<DriverB> implements Competing {
 
     @Override
     public String toString() {
-        return super.toString()+ bodyType;
+
+        return super.toString() + bodyType;
+    }
+
+    @Override
+    public void passDiagnostics() {
+        System.out.println("Автомобиль " + getBrand() + " " + getModel() + " проходит диагностику");
+
     }
 }
 
