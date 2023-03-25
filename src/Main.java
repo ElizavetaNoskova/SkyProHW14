@@ -1,10 +1,7 @@
 import driver.*;
 import transport.*;
 
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Queue;
+import java.util.*;
 
 public class Main {
 
@@ -50,7 +47,6 @@ public class Main {
                 new Truck("Mercedes", "Europe", 14.2, driverC2, Truck.LoadCapacity.N1, mechanicList),
                 new Truck("Mercedes", "S12", 15.6, driverC3, Truck.LoadCapacity.N2, mechanicList),
                 new Truck("Volvo", "Europe North", 16.1, driverC4, Truck.LoadCapacity.N2, mechanicList)};
-
         for (Transport<?> transport : transports) {
             System.out.println(transport);
         }
@@ -80,6 +76,14 @@ public class Main {
         transportsList.add(transports[10]);
         transportsList.add(transports[11]);
 
+        Map<Transport<?>, List<Mechanic>>  hashMapTransport = new HashMap<>();
+        hashMapTransport.put(transports[0], mechanicList);
+        hashMapTransport.put(transports[1], mechanicList);
+        hashMapTransport.put(transports[2], mechanicList);
+        hashMapTransport.put(transports[3], mechanicList);
+        for (Map.Entry<Transport<?>, List<Mechanic>> hash : hashMapTransport.entrySet()){
+            System.out.println("Водитель " + hash.getKey()+ " :" + hash.getValue());
+        }
         serviceStation serviceStation = new serviceStation();
         serviceStation.addTransport(transports[0]);
         serviceStation.addTransport(transports[1]);
