@@ -1,4 +1,5 @@
 package driver;
+import java.util.Objects;
 
 public class Driver {
     private static String FullName;
@@ -35,6 +36,18 @@ public class Driver {
     public String toString() {
         return FullName + (haveDriverLicense ? ", водительские права есть" : ", водительских прав нет" +
                 ", опыт вождения " + experience + " лет.");
+    }
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Driver driver = (Driver) o;
+        return haveDriverLicense == driver.haveDriverLicense && experience == driver.experience && Objects.equals(FullName, driver.FullName);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(FullName, haveDriverLicense, experience);
     }
 }
 
