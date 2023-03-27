@@ -47,19 +47,12 @@ public class Main {
                 new Truck("Mercedes", "Europe", 14.2, driverC2, Truck.LoadCapacity.N1, mechanicList),
                 new Truck("Mercedes", "S12", 15.6, driverC3, Truck.LoadCapacity.N2, mechanicList),
                 new Truck("Volvo", "Europe North", 16.1, driverC4, Truck.LoadCapacity.N2, mechanicList)};
-        for (Transport<?> transport : transports) {
-            System.out.println(transport);
-        }
-        for (Transport<?> transport : transports) {
-            System.out.println("Водитель: " + transport.getDriver().getFullName() + ", управляет автомобилем: "
-                    + transport.getBrand() + " " + transport.getModel() + " вид транспорта: " + transport.getType() +
-                    " и будет участвовать в заезде");
-        }
+
         transports[1].printType();
         checkTransportDiagnostic(transports[1]);
         checkTransportDiagnostic(transports[5]);
         checkTransportDiagnostic(transports[8]);
-        treansportInfo(transports[0]);
+        //treansportInfo(transports[0]);
         System.out.println(Arrays.toString(transports));
 
         List<Transport<?>> transportsList = new ArrayList<>();
@@ -105,6 +98,14 @@ public class Main {
         hashMapTransport.put(transports[3], mechanicList);
         for (Map.Entry<Transport<?>, List<Mechanic>> hash : hashMapTransport.entrySet()) {
             System.out.println("Водитель " + hash.getKey() + " :" + hash.getValue());
+        }
+        for (Transport<?> transport : transports) {
+            System.out.println(transport);
+        }
+        for (Transport<?> transport : transports) {
+            System.out.println("Водитель: " + transport.getDriver().getFullName() + ", управляет автомобилем: "
+                    + transport.getBrand() + " " + transport.getModel() + " вид транспорта: " + transport.getType() +
+                    " и будет участвовать в заезде");
         }
         serviceStation serviceStation = new serviceStation();
         serviceStation.addTransport(transports[0]);
