@@ -8,7 +8,7 @@ import java.util.List;
 public class Truck extends Transport<DriverC> implements Competing {
     LoadCapacity loadCapacity;
 
-    public Truck(String brand, String model, double engineCapacity, DriverC driverC,
+    public Truck(String brand, String model, double engineCapacity, DriverC driver,
                  LoadCapacity loadCapacity, List<Mechanic> mechanicList) {
         super(brand, model, engineCapacity, mechanicList);
         this.loadCapacity = loadCapacity;
