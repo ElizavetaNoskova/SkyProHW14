@@ -11,7 +11,7 @@ public class Bus extends Transport<DriverD> implements Competing {
 
     public Bus(String brand, String model,
                double engineCapacity, DriverD driver, Capacity capacity, List<Mechanic> mechanicList) {
-        super(brand, model, engineCapacity, mechanicList);
+        super(brand, model, engineCapacity, driver, mechanicList);
         this.capacity = capacity;
     }
 

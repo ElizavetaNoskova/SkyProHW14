@@ -52,7 +52,7 @@ public class Main {
         checkTransportDiagnostic(transports[1]);
         checkTransportDiagnostic(transports[5]);
         checkTransportDiagnostic(transports[8]);
-        //treansportInfo(transports[0]);
+        treansportInfo(transports[0]);
         System.out.println(Arrays.toString(transports));
 
         List<Transport<?>> transportsList = new ArrayList<>();
