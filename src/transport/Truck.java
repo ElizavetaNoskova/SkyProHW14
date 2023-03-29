@@ -1,6 +1,5 @@
 package transport;
 
-import driver.Driver;
 import driver.DriverC;
 
 import java.util.List;
@@ -8,9 +7,9 @@ import java.util.List;
 public class Truck extends Transport<DriverC> implements Competing {
     LoadCapacity loadCapacity;
 
-    public Truck(String brand, String model, double engineCapacity, DriverC driverC,
+    public Truck(String brand, String model, double engineCapacity, DriverC driver,
                  LoadCapacity loadCapacity, List<Mechanic> mechanicList) {
-        super(brand, model, engineCapacity, mechanicList);
+        super(brand, model, engineCapacity, driver, mechanicList);
         this.loadCapacity = loadCapacity;
     }
 

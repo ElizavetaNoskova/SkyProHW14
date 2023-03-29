@@ -10,8 +10,8 @@ public class Bus extends Transport<DriverD> implements Competing {
     List<Mechanic> busMechanicsList;
 
     public Bus(String brand, String model,
-               double engineCapacity, DriverD driverD1, Capacity capacity, List<Mechanic> mechanicList) {
-        super(brand, model, engineCapacity, mechanicList);
+               double engineCapacity, DriverD driver, Capacity capacity, List<Mechanic> mechanicList) {
+        super(brand, model, engineCapacity, driver, mechanicList);
         this.capacity = capacity;
     }
 

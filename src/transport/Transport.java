@@ -17,7 +17,7 @@ public abstract class Transport<D extends Driver> implements Competing {
     //int maxSpeed;
 
     public Transport(String brand, String model,
-                     double engineCapacity, List<Mechanic> mechanicList) {
+                     double engineCapacity, D driver, List<Mechanic> mechanicList) {
         if (brand.isEmpty() || brand == null) {
             brand = "default";
         }

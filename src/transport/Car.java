@@ -36,8 +36,8 @@ public class Car extends Transport<DriverB> implements Competing {
 
     BodyType bodyType;
 
-    public Car(String brand, String model, double engineCapacity, DriverB driverB, BodyType bodyType, List<Mechanic> mechanicList) {
-        super(brand, model, engineCapacity, mechanicList);
+    public Car(String brand, String model, double engineCapacity, DriverB driver, BodyType bodyType, List<Mechanic> mechanicList) {
+        super(brand, model, engineCapacity, driver, mechanicList);
         this.bodyType = bodyType;
     }
 

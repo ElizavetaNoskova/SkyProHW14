@@ -22,6 +22,6 @@ public class DriverB extends Driver implements Skills {
 
     @Override
     public String toString() {
-        return "Водитель категории В" + super.toString();
+        return "Водитель категории В: " + super.toString();
     }
 }
